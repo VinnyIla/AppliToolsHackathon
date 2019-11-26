@@ -79,12 +79,12 @@ namespace HackathonProj.PageObjects
         
         private void CheckAlert(string title, string alertText)
         {
-            var alertEle = Driver.ElementVisible(By.CssSelector("[id*='random_id'].alert-warning"), "Alert", 10, false);
-            AddMessage(alertEle != null && !alertEle.GetCssValue("display").Equals("block"), $"{title} - Alert present", $"{title} - Alert Not present; ");
+            var alertEle = Driver.ElementVisible(By.CssSelector("[id*='random_id'].alert-warning"), "Alert", 10, false);            
 
             if (alertEle != null)
                 AddMessage(alertEle.Text.Contains(alertText), $"{title} - Alert message contains text '{alertText}'", $"{title} -  Alert message does not contains text '{alertText}'; ");
-
+            else
+                AddMessage(alertEle != null && !alertEle.GetCssValue("display").Equals("block"), $"{title} - Alert present", $"{title} - Alert Not present; ");
         }
 
         internal void VerifyLoginFunction()
