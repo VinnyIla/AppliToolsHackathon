@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Drawing;
 using SeleniumExtras.PageObjects;
 using HackathonProj.Helpers;
+using System;
 
 namespace HackathonProj
 {
@@ -25,6 +26,7 @@ namespace HackathonProj
             public void BeforeEach()
             {
 
+                Environment.SetEnvironmentVariable("APPLITOOLS_API_KEY", ConfigurationManager.AppSettings["APPLITOOLS_API_KEY"].ToString());
                 var batchInfo = new Applitools.BatchInfo("LoginBatch");
                 
                 //Initialize the Runner for your test.

@@ -27,6 +27,6 @@
     </Steps>
   </DeploymentTransformation>
   <Report>
-    <Template name="..\..\..\ReportTemplate.cshtml" outputName="SpecRunReport.html"/>
+    <Template name="..\..\..\..\ReportTemplate.cshtml" outputName="SpecRunReportV1.html"/>
   </Report>
 </TestProfile>
