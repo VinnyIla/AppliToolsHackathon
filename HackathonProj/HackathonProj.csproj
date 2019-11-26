@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
+  <PropertyGroup>    
+    <NeutralLanguage>en-AU</NeutralLanguage>    
+    <TargetFramework>net461</TargetFramework>
+    <RootNamespace>HackathonProj</RootNamespace>
+    <DeployPath>..\</DeployPath>
+    <UserDir>$(HOMEDRIVE)$(HOMEPATH)</UserDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DotNetSeleniumExtras.PageObjects" Version="3.11.0" />
+    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+    <PackageReference Include="Eyes.Selenium" Version="2.22.28" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="77.0.0" />
+    <PackageReference Include="Selenium.Support" Version="3.13.1" />
+    <PackageReference Include="SpecFlow" Version="3.1.67" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.67" />
+    <!--This is used to regenerate feature files, and is refered in app.config <specFlow>.<plugins> SpecFlow.Plus.Excel -->
+    <PackageReference Include="SpecRun.NUnit" Version="3.1.36" />
+    <!--This should be inherited from SpecRun.SpecFlow but it isn't working.  Without explicitly referencing this here, the SpecRun tests for the feature files (as opposed to the NUnit ones from the .feature.cs files) will not appear in the Test Explorer -->
+    <PackageReference Include="SpecRun.Runner" Version="3.1.36" />
+    <PackageReference Include="SpecRun.SpecFlow" Version="3.1.36" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="SpecFlow\TraditionalTests.feature.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TraditionalTests.feature</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Default.srprofile">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+</Project>
